@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;  /* Ocupa a tela inteira */
@@ -9,6 +10,7 @@ export const Container = styled.div`
     background-size: cover;
     background-position: center;  /* Centraliza a imagem*/
     background-repeat: no-repeat;
+    font-family: sans-serif;
 `;
 
 export const Box = styled.div`
@@ -75,5 +77,23 @@ export const FormItemLabel = styled.label`
     width: 100%;
 `;
 
+export const Footer = styled.footer`
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%; 
+
+`;
 
 
+export const Watermark = styled.div`
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: #f1f1f1;
+    font-family: Verdana, sans-serif;
+    font-style: italic;
+    
+`;

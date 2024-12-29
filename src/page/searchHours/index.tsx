@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, DatePicker, Select, FormProps, Form, Alert, Spin } from "antd";
-import { Box, BoxSelect, Container, FormItemLabel } from "./style";
+import { Box, BoxSelect, Container, FormItemLabel, Watermark, Footer } from "./style";
 import TextArea from "antd/es/input/TextArea";
 import { options } from "../../utils/optionSelect";
 import { Option } from "antd/es/mentions";
@@ -148,6 +148,9 @@ export default function SearchHours() {
                     />
                 )}
             </Box>
+            <Footer>
+                <Watermark>@Desenvolvido por Eriky Love e Veio TioPaulo</Watermark>
+            </Footer>
         </Container>
     );
 }
