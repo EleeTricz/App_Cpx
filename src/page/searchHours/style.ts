@@ -4,32 +4,76 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
-`
+    height: 100%;  /* Ocupa a tela inteira */
+    background-image: url('/backgroundCpx.png');
+    background-size: cover;
+    background-position: center;  /* Centraliza a imagem*/
+    background-repeat: no-repeat;
+`;
 
 export const Box = styled.div`
-    background-color: #fff;
+    background-color: rgba(211, 211, 211, 0.6);  /* Cinza clarinho com 70% de opacidade */
     border: 1px solid #808080;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     display: flex;
     gap: 10px;
     flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidade */
+
     h1 {
         text-align: center;
+        color: white;  /* Texto em branco */
     }
-    width: 50%;
+
     button {
-       font-size: large;
+        font-size: large;
+        color: white;  /* Texto do botão em branco */
+        background-color: #007bff;  /* Cor de fundo do botão */
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #0056b3;  /* Efeito ao passar o mouse */
+        }
     }
-    justify-content: center;
-`
+`;
 
 export const BoxSelect = styled.div`
     display: flex;
     align-items: center;
+
     span {
         margin-left: 10px;
+        color: black;  /* Texto em branco */
     }
-`
+`;
+
+export const TextArea = styled.textarea`
+    background-color: rgba(255, 255, 255, 0.3);  /* Fundo bem transparente */
+    color: white;  /* Texto branco */
+    border: 1px solid #808080;
+    border-radius: 5px;
+    padding: 10px;
+    resize: vertical;  /* Permite redimensionar verticalmente */
+
+    &::placeholder {
+        color: white;  /* Placeholder em branco */
+    }
+`;
+
+export const FormItemLabel = styled.label`
+    color: white;  /* Texto do label em branco */
+    font-size: 1rem;  /* Ajuste o tamanho se necessário */
+    margin-bottom: 8px;  /* Distância entre o label e o campo */
+    text-align: center;
+    display: block;
+    width: 100%;
+`;
+
+
+

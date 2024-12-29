@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, DatePicker, Select, FormProps, Form, Alert, Spin } from "antd";
-import { Box, BoxSelect, Container } from "./style";
+import { Box, BoxSelect, Container, FormItemLabel } from "./style";
 import TextArea from "antd/es/input/TextArea";
 import { options } from "../../utils/optionSelect";
 import { Option } from "antd/es/mentions";
@@ -50,15 +50,20 @@ export default function SearchHours() {
             setAlertMessage('Sucesso na Busca');
             setAlertType('success');
             setAlertDescription('A busca foi concluída com sucesso.');
-            
+
             // Faz o alerta desaparecer após 5 segundos
             setTimeout(() => {
                 setAlertMessage('');
             }, 5000);
         } catch (error) {
-            setAlertMessage('Erro na Busca');
+            if (error instanceof Error) {
+                const errorMessage = error.message || 'Algo deu errado';
+                setAlertDescription(errorMessage);
+            } else {
+                setAlertDescription('Erro desconhecido');
+            }
             setAlertType('error');
-            setAlertDescription('A busca não foi concluída com sucesso.');
+            setAlertMessage('Falha na busca.');
 
             // Faz o alerta desaparecer após 5 segundos
             setTimeout(() => {
@@ -78,15 +83,15 @@ export default function SearchHours() {
                     layout="vertical"
                     onFinish={onFinish}
                 >
-                    <Form.Item label="Informe Nome(s)" name="usuarios">
+                    <Form.Item label={<FormItemLabel>Informe Nome(s)</FormItemLabel>} name="usuarios">
                         <TextArea rows={10} disabled={loading} />
                     </Form.Item>
 
-                    <Form.Item label="Escolha o intervalo de datas" name="dateRange">
+                    <Form.Item label={<FormItemLabel>Escolha o intervalo de datas</FormItemLabel>} name="dateRange">
                         <RangePicker disabled={loading} />
                     </Form.Item>
 
-                    <Form.Item label="Escolha uma guarnição" name="guarnicao">
+                    <Form.Item label={<FormItemLabel>Escolha uma guarnição</FormItemLabel>} name="guarnicao">
                         <Select showSearch placeholder="Selecione uma opção" optionFilterProp="label" disabled={loading}>
                             {options.map((option) => (
                                 <Option key={option.value} value={option.value}>
@@ -97,10 +102,11 @@ export default function SearchHours() {
                                 </Option>
                             ))}
                         </Select>
+
                     </Form.Item>
 
                     <Form.Item label={null}>
-                        <Button block type="primary" htmlType="submit">Buscar</Button>
+                        <Button block type="primary" htmlType="submit" disabled={loading}>Buscar</Button>
                     </Form.Item>
                 </Form>
 
