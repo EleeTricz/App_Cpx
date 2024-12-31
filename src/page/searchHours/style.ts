@@ -5,7 +5,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;  /* Ocupa a tela inteira */
+    height: 100vh;  /* Ocupa a tela inteira */
     background-image: url('/backgroundCpx.png');
     background-size: cover;
     background-position: center;  /* Centraliza a imagem*/
@@ -14,6 +14,7 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
+    
     background-color: rgba(211, 211, 211, 0.6);  /* Cinza clarinho com 70% de opacidade */
     border: 1px solid #808080;
     padding: 20px;

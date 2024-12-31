@@ -77,18 +77,26 @@ export default function SearchHours() {
     return (
         <Container>
             <Box>
-                <h1>Buscar Horas</h1>
                 <Form
                     autoComplete="off"
                     layout="vertical"
                     onFinish={onFinish}
                 >
+                    <h1>Buscar Horas</h1>
                     <Form.Item label={<FormItemLabel>Informe Nome(s)</FormItemLabel>} name="usuarios">
                         <TextArea rows={10} disabled={loading} />
                     </Form.Item>
 
                     <Form.Item label={<FormItemLabel>Escolha o intervalo de datas</FormItemLabel>} name="dateRange">
-                        <RangePicker disabled={loading} />
+                        <RangePicker 
+                        disabled={loading} 
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+
+                        }}
+                        />
                     </Form.Item>
 
                     <Form.Item label={<FormItemLabel>Escolha uma guarnição</FormItemLabel>} name="guarnicao">

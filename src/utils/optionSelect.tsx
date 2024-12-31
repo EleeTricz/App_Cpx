@@ -18,7 +18,7 @@ export const options = [
     { value: '9', label: 'REUNIAO', icon: <IoPeopleSharp /> },
     { value: '10', label: 'INSTRUÇÃO', icon: <LiaChalkboardTeacherSolid /> },
     { value: '11', label: 'COMANDO', icon: <FaPersonMilitaryRifle /> },
-    { value: '12', label: 'AGUARDNADO PTR', icon: <LuAlarmClock /> },
+    { value: '12', label: 'AGUARDANDO PTR', icon: <LuAlarmClock /> },
     { value: '14', label: 'INCURSÃO', icon: <GiTankTread /> },
     { value: '21', label: 'COE', icon: <MdOutlineMilitaryTech /> },
 ];
