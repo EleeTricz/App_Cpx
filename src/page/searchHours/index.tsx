@@ -21,31 +21,31 @@ export default function SearchHours() {
     type FieldType = {
         usuarios?: string;
         dateRange?: [string | null, string | null];
-        guarnicao?: string;
+        guarnicao?: string[];
     };
 
     const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
         setLoading(true);
         try {
             const usuarios = values.usuarios?.split('\n') || [];
-            const guarnicao = values.guarnicao || "";
+            const guarnicao = values.guarnicao || [];
             const [data_inicial, data_final] = values.dateRange || [];
-
+            
             const formattedData = {
                 usuarios,
                 data_inicial: data_inicial ? dayjs(data_inicial).format('YYYY-MM-DD') : undefined,
                 data_final: data_final ? dayjs(data_final).format('YYYY-MM-DD') : undefined,
-                guarnicao,
+                guarnicao: guarnicao,
             };
 
             // Chama a lógica do backend e obtém o resultado
             const result = await processarConsulta(formattedData);
-
             // Formata os dados
             const resultFormated = await formatarResultado(result);
 
             // Atualiza o estado com o resultado
-            setResult(JSON.stringify(resultFormated, null, 2));
+            setResult(resultFormated);
+
             setIsVisible(true); // Torna o textarea visível
             setAlertMessage('Sucesso na Busca');
             setAlertType('success');
@@ -96,11 +96,12 @@ export default function SearchHours() {
                             alignItems: 'center',
 
                         }}
+                        placeholder={['Data Inicío','Data Final']}
                         />
                     </Form.Item>
 
                     <Form.Item label={<FormItemLabel>Escolha uma guarnição</FormItemLabel>} name="guarnicao">
-                        <Select showSearch placeholder="Selecione uma opção" optionFilterProp="label" disabled={loading}>
+                        <Select showSearch placeholder="Selecione uma opção" optionFilterProp="label" disabled={loading} mode="multiple">
                             {options.map((option) => (
                                 <Option key={option.value} value={option.value}>
                                     <BoxSelect>

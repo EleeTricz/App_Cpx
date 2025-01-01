@@ -5,26 +5,32 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;  /* Ocupa a tela inteira */
+    height: 100vw;  
     background-image: url('/backgroundCpx.png');
     background-size: cover;
     background-position: center;  /* Centraliza a imagem*/
     background-repeat: no-repeat;
     font-family: sans-serif;
+    background-color: black;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 `;
 
 export const Box = styled.div`
-    
+
     background-color: rgba(211, 211, 211, 0.6);  /* Cinza clarinho com 70% de opacidade */
     border: 1px solid #808080;
-    padding: 20px;
+    margin-top: 5vh;
+    padding: 20px 20px 0 20px;
     border-radius: 10px;
     display: flex;
     gap: 10px;
     flex-direction: column;
     width: 50%;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra para dar profundidade */
+    -webkit-box-shadow: 28px 23px 28px 5px rgba(0,0,0,1);
+    -moz-box-shadow: 28px 23px 28px 5px rgba(0,0,0,1);
+    box-shadow: 28px 23px 28px 5px rgba(0,0,0,1);
 
     h1 {
         text-align: center;
@@ -49,7 +55,7 @@ export const Box = styled.div`
 export const BoxSelect = styled.div`
     display: flex;
     align-items: center;
-
+    
     span {
         margin-left: 10px;
         color: black;  /* Texto em branco */
@@ -79,7 +85,7 @@ export const FormItemLabel = styled.label`
 `;
 
 export const Footer = styled.footer`
-    position: relative;
+    position: sticky;
     padding: 20px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
@@ -98,3 +104,5 @@ export const Watermark = styled.div`
     font-style: italic;
     
 `;
+
+

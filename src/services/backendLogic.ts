@@ -6,7 +6,7 @@ interface ConsultaParams {
   usuarios: string[];
   data_inicial?: string;
   data_final?: string;
-  guarnicao?: string;
+  guarnicao: string[];
 }
 
 export async function processarConsulta(params: ConsultaParams): Promise<any> {
@@ -33,7 +33,7 @@ export async function processarConsulta(params: ConsultaParams): Promise<any> {
       usuariosIds,
       data_inicial ? formatDate(data_inicial) : '',
       data_final ? formatDate(data_final) : '',
-      guarnicao || ''
+      guarnicao 
     );
 
     return result;

@@ -14,7 +14,7 @@ export async function enviarDadosParaConsultaPonto(
     usuarios: string[],
     dataInicio: string,
     dataFinal: string,
-    guarnicao: string = '',
+    guarnicao: string[],
     registroDeletado: string = '0'
 ): Promise<any> {
     const apiUrl = 'https://api-cpx-b555.onrender.com/api/consulta-ponto';
